@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Wildlife Encyclopedia</title>
+    <meta name="description" content="Create a free explorer account to keep your shortlist and profile across visits.">
+    <link rel="icon" type="image/png" href="images/duck_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-container">
+        <div class="vine-border vine-left" aria-hidden="true"></div>
+
+        <div class="main-content">
+            <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="images/duck_icon.png" alt="" class="logo-img" width="32" height="32">
+                    <span>WILDLIFE ENCYCLOPEDIA</span>
+                </a>
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="services.html" class="nav-link">CATALOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                    <a href="signup.html" class="nav-link active" aria-current="page" data-auth="guest">SIGN UP</a>
+                    <a href="login.html" class="nav-link" data-auth="guest">LOG IN</a>
+                    <a href="profile.html" class="nav-link" data-auth="user" hidden>PROFILE</a>
+                    <button type="button" class="nav-link nav-logout-btn" id="navLogout" data-auth="user" hidden>LOG OUT</button>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">Dark mode</button>
+                </nav>
+            </header>
+
+            <main id="main">
+                <section class="hero">
+                    <h1>CREATE YOUR EXPLORER ACCOUNT</h1>
+                    <p class="hero-subtitle">
+                        Sign up to keep your profile on this device. There is no server behind this
+                        site, so your details stay in this browser's storage only.
+                    </p>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="featured-section" aria-labelledby="signup-title">
+                    <div class="featured-card">
+                        <div class="featured-info">
+                            <h2 class="featured-title" id="signup-title">SIGN UP</h2>
+                            <form id="signupForm" class="form" novalidate>
+                                <div class="form-field">
+                                    <label for="signup-name">FULL NAME <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="text" id="signup-name" name="name" autocomplete="name" aria-describedby="signup-name-error" required>
+                                    <p class="field-error" id="signup-name-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="signup-email">EMAIL <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="email" id="signup-email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="signup-email-error" required>
+                                    <p class="field-error" id="signup-email-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="signup-phone">PHONE NUMBER <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="tel" id="signup-phone" name="phone" autocomplete="tel" placeholder="+7 701 234 5678" aria-describedby="signup-phone-hint signup-phone-error" required>
+                                    <p class="form-hint" id="signup-phone-hint">Digits only, 9 to 18 characters, optional leading +.</p>
+                                    <p class="field-error" id="signup-phone-error"></p>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-field">
+                                        <label for="signup-password">PASSWORD <span class="required-mark" aria-hidden="true">*</span></label>
+                                        <input type="password" id="signup-password" name="password" autocomplete="new-password" aria-describedby="signup-password-hint signup-password-error" required>
+                                        <p class="form-hint" id="signup-password-hint">At least 8 characters, with a letter and a number.</p>
+                                        <p class="field-error" id="signup-password-error"></p>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="signup-confirm">CONFIRM PASSWORD <span class="required-mark" aria-hidden="true">*</span></label>
+                                        <input type="password" id="signup-confirm" name="confirm_password" autocomplete="new-password" aria-describedby="signup-confirm-error" required>
+                                        <p class="field-error" id="signup-confirm-error"></p>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">CREATE ACCOUNT</button>
+                                </div>
+                                <div id="signupResult" class="message form-result" role="status" aria-live="polite" tabindex="-1"></div>
+                            </form>
+                            <p class="form-hint">Already have an account? <a href="login.html">Log in here</a>.</p>
+                        </div>
+                        <div class="featured-img-box photo-box">
+                            <img src="images/volunteer.jpg" alt="Pixel-art volunteer walking through a green forest with a small dog" width="640" height="360">
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/duck_icon.png" alt="" width="28" height="28">
+                        <span>WILDLIFE ENCYCLOPEDIA</span>
+                    </div>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-col">
+                        <h2>QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Catalog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h2>PROJECT INFO</h2>
+                        <ul>
+                            <li>Astana IT University</li>
+                            <li>Web Technologies, Final Project</li>
+                            <li>Student project, 2026</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Wildlife Encyclopedia. Frontend-only student project: forms are demonstrations and send no data.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div class="vine-border vine-right" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>

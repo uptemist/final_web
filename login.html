@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In | Wildlife Encyclopedia</title>
+    <meta name="description" content="Log in to your explorer account on this device.">
+    <link rel="icon" type="image/png" href="images/duck_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-container">
+        <div class="vine-border vine-left" aria-hidden="true"></div>
+
+        <div class="main-content">
+            <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="images/duck_icon.png" alt="" class="logo-img" width="32" height="32">
+                    <span>WILDLIFE ENCYCLOPEDIA</span>
+                </a>
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="services.html" class="nav-link">CATALOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                    <a href="signup.html" class="nav-link" data-auth="guest">SIGN UP</a>
+                    <a href="login.html" class="nav-link active" aria-current="page" data-auth="guest">LOG IN</a>
+                    <a href="profile.html" class="nav-link" data-auth="user" hidden>PROFILE</a>
+                    <button type="button" class="nav-link nav-logout-btn" id="navLogout" data-auth="user" hidden>LOG OUT</button>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">Dark mode</button>
+                </nav>
+            </header>
+
+            <main id="main">
+                <section class="hero">
+                    <h1>WELCOME BACK</h1>
+                    <p class="hero-subtitle">
+                        Log in with the email and password you used to sign up on this browser.
+                    </p>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="featured-section" aria-labelledby="login-title">
+                    <div class="featured-card">
+                        <div class="featured-info">
+                            <h2 class="featured-title" id="login-title">LOG IN</h2>
+                            <form id="loginForm" class="form" novalidate>
+                                <div class="form-field">
+                                    <label for="login-email">EMAIL <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="email" id="login-email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="login-email-error" required>
+                                    <p class="field-error" id="login-email-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="login-password">PASSWORD <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="password" id="login-password" name="password" autocomplete="current-password" aria-describedby="login-password-error" required>
+                                    <p class="field-error" id="login-password-error"></p>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">LOG IN</button>
+                                </div>
+                                <div id="loginResult" class="message form-result" role="status" aria-live="polite" tabindex="-1"></div>
+                            </form>
+                            <p class="form-hint">No account yet? <a href="signup.html">Create one here</a>.</p>
+                        </div>
+                        <div class="featured-img-box photo-box">
+                            <img src="images/night.jpg" alt="Dark pixel-art forest cabin at night lit by lanterns" width="640" height="360">
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/duck_icon.png" alt="" width="28" height="28">
+                        <span>WILDLIFE ENCYCLOPEDIA</span>
+                    </div>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-col">
+                        <h2>QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Catalog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h2>PROJECT INFO</h2>
+                        <ul>
+                            <li>Astana IT University</li>
+                            <li>Web Technologies, Final Project</li>
+                            <li>Student project, 2026</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Wildlife Encyclopedia. Frontend-only student project: forms are demonstrations and send no data.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div class="vine-border vine-right" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

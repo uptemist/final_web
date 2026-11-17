@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Wildlife Encyclopedia</title>
+    <meta name="description" content="Pixel-art wildlife encyclopedia: conservation programs, animal facts and a personal shortlist.">
+    <link rel="icon" type="image/png" href="images/duck_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-container">
+        <div class="vine-border vine-left" aria-hidden="true"></div>
+
+        <div class="main-content">
+            <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="images/duck_icon.png" alt="" class="logo-img" width="32" height="32">
+                    <span>WILDLIFE ENCYCLOPEDIA</span>
+                </a>
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link active" aria-current="page">HOME</a>
+                    <a href="services.html" class="nav-link">CATALOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                    <a href="signup.html" class="nav-link" data-auth="guest">SIGN UP</a>
+                    <a href="login.html" class="nav-link" data-auth="guest">LOG IN</a>
+                    <a href="profile.html" class="nav-link" data-auth="user" hidden>PROFILE</a>
+                    <button type="button" class="nav-link nav-logout-btn" id="navLogout" data-auth="user" hidden>LOG OUT</button>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">Dark mode</button>
+                </nav>
+            </header>
+
+            <main id="main">
+                <section class="hero">
+                    <h1>EXPLORE THE WORLD!</h1>
+                    <p class="hero-subtitle">
+                        Welcome to the Pixel Wildlife Encyclopedia. Discover rare species,
+                        find a conservation program and help protect the nature around us.
+                    </p>
+
+                    <div class="card-lol">
+                        <div class="img-box">
+                            <img src="images/card.png" alt="Pixel-art forest path with tall pine trees and mountains" class="card-img" width="736" height="491">
+                        </div>
+                        <a href="services.html" class="btn btn-primary">START EXPLORING</a>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="info-title">
+                    <h2 class="section-title" id="info-title">ENCYCLOPEDIA INFO</h2>
+                    <div class="stats-grid">
+                        <div class="stats-card">6 CONSERVATION PROGRAMS</div>
+                        <div class="stats-card">4 NATIONAL PARKS</div>
+                        <div class="stats-card">CERTIFIED BIOLOGISTS</div>
+                        <div class="stats-card">SEARCH &amp; FILTER CATALOG</div>
+                        <div class="stats-card">PERSONAL SHORTLIST</div>
+                        <div class="stats-card">FREE ACCESS</div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="featured-section" aria-labelledby="featured-title">
+                    <div class="featured-card">
+                        <div class="featured-info">
+                            <h2 class="featured-title" id="featured-title">CREATURE OF THE DAY:</h2>
+                            <p class="junimo-name">JUNIMO</p>
+                            <p class="featured-text">
+                                Mysterious forest spirits from pixel-game folklore. They are deeply
+                                connected to nature, love star-drops and help restore harmony to the forest,
+                                a fun reminder of how every creature supports its ecosystem.
+                            </p>
+                            <a href="services.html" class="btn btn-secondary">SEE REAL PROGRAMS</a>
+                        </div>
+                        <div class="featured-img-box">
+                            <img src="images/junimo.png" alt="Small green pixel-art forest spirit with a leaf on its head" class="featured-img" width="736" height="736">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="greeting-title">
+                    <h2 class="section-title" id="greeting-title">GREETING CORNER</h2>
+                    <div class="greeting-box">
+                        <form id="greetForm" class="form" novalidate>
+                            <div class="form-field">
+                                <label for="nameInput">YOUR NAME</label>
+                                <div class="greeting-controls">
+                                    <input type="text" id="nameInput" class="input" maxlength="30" autocomplete="given-name" placeholder="e.g. Aigerim" aria-describedby="greetPreview">
+                                    <button type="submit" class="btn btn-primary">SAY HELLO</button>
+                                    <button type="button" id="greetClear" class="btn btn-secondary">CLEAR</button>
+                                </div>
+                                <p id="greetPreview" class="form-hint greeting-preview">Preview: Hello, explorer!</p>
+                            </div>
+                            <p id="greetMessage" class="message" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/duck_icon.png" alt="" width="28" height="28">
+                        <span>WILDLIFE ENCYCLOPEDIA</span>
+                    </div>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-col">
+                        <h2>QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Catalog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h2>PROJECT INFO</h2>
+                        <ul>
+                            <li>Astana IT University</li>
+                            <li>Web Technologies, Final Project</li>
+                            <li>Student project, 2026</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Wildlife Encyclopedia. Frontend-only student project: forms are demonstrations and send no data.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div class="vine-border vine-right" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

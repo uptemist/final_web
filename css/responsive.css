@@ -1,0 +1,157 @@
+/* ==========================================================
+   Responsive rules — checked at 375px, 768px and 1440px
+   ========================================================== */
+
+/* Tablet and small laptop */
+@media (max-width: 1100px) {
+    .catalog-container {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        order: 2;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .vine-border {
+        width: 40px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-card {
+        flex-direction: column;
+    }
+
+    .featured-img-box {
+        min-height: 240px;
+    }
+
+    .photo-box {
+        max-height: 360px;
+    }
+
+    .info-boxes {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    body {
+        font-size: 20px;
+    }
+
+    .vine-border {
+        display: none;
+    }
+
+    .main-content {
+        border: 0;
+    }
+
+    .header {
+        padding: 14px 10px;
+    }
+
+    .logo {
+        font-size: 11px;
+    }
+
+    .nav {
+        gap: 6px;
+    }
+
+    .nav-link {
+        font-size: 9px;
+        padding: 7px 6px;
+    }
+
+    .hero {
+        padding: 28px 16px 6px;
+    }
+
+    .hero h1 {
+        font-size: 17px;
+    }
+
+    .hero-subtitle {
+        font-size: 21px;
+    }
+
+    .pixel-divider {
+        margin: 24px 16px;
+    }
+
+    .info-section,
+    .filter-panel {
+        margin: 0 16px;
+        padding: 18px 14px;
+    }
+
+    .featured-section {
+        padding: 0 16px;
+    }
+
+    .catalog-wrapper {
+        padding: 24px 16px 0;
+    }
+
+    .section-title {
+        font-size: 12px;
+    }
+
+    .featured-title {
+        font-size: 14px;
+    }
+
+    .junimo-name {
+        font-size: 18px;
+    }
+
+    .stats-grid,
+    .catalog-grid,
+    .catalog-sidebar,
+    .team-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-card {
+        font-size: 10px;
+    }
+
+    .footer {
+        padding: 22px 16px 14px;
+    }
+
+    .footer-middle {
+        flex-direction: column;
+    }
+
+    .faq-question {
+        font-size: 9px;
+    }
+
+    .btn {
+        font-size: 10px;
+    }
+}

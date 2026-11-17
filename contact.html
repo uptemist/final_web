@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Wildlife Encyclopedia</title>
+    <meta name="description" content="Frequently asked questions and an enquiry form (frontend demo).">
+    <link rel="icon" type="image/png" href="images/duck_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-container">
+        <div class="vine-border vine-left" aria-hidden="true"></div>
+
+        <div class="main-content">
+            <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="images/duck_icon.png" alt="" class="logo-img" width="32" height="32">
+                    <span>WILDLIFE ENCYCLOPEDIA</span>
+                </a>
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="services.html" class="nav-link">CATALOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link active" aria-current="page">CONTACT</a>
+                    <a href="signup.html" class="nav-link" data-auth="guest">SIGN UP</a>
+                    <a href="login.html" class="nav-link" data-auth="guest">LOG IN</a>
+                    <a href="profile.html" class="nav-link" data-auth="user" hidden>PROFILE</a>
+                    <button type="button" class="nav-link nav-logout-btn" id="navLogout" data-auth="user" hidden>LOG OUT</button>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">Dark mode</button>
+                </nav>
+            </header>
+
+            <main id="main">
+                <section class="hero">
+                    <h1>GET IN TOUCH</h1>
+                    <p class="hero-subtitle">
+                        Have a question about a program, the adoption scheme or a custom research
+                        trip? Check the FAQ or send us an enquiry.
+                    </p>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="faq-title">
+                    <h2 class="section-title" id="faq-title">FREQUENTLY ASKED QUESTIONS</h2>
+                    <div class="faq-list" id="faqList">
+                        <div class="faq-item">
+                            <h3><button type="button" class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">How do I book a wildlife tour?<span class="faq-icon" aria-hidden="true">+</span></button></h3>
+                            <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                                <p>Open the Catalog, pick a program and press DETAILS, then use the enquiry link. The contact form opens with that program already selected.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3><button type="button" class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Are the programs suitable for beginners?<span class="faq-icon" aria-hidden="true">+</span></button></h3>
+                            <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                                <p>Yes. Workshops and day safaris need no experience. Multi-day research trips are led by certified biologists who explain every step.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3><button type="button" class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">Where does the money go?<span class="faq-icon" aria-hidden="true">+</span></button></h3>
+                            <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                                <p>Program fees and adoption payments support habitat protection and the rehabilitation of rescued animals at partner sanctuaries.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3><button type="button" class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Is my shortlist saved?<span class="faq-icon" aria-hidden="true">+</span></button></h3>
+                            <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                                <p>Your shortlist is kept only in this browser. It is not sent to us, so clearing the browser data removes it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="featured-section" aria-labelledby="form-title">
+                    <div class="featured-card">
+                        <div class="featured-info">
+                            <h2 class="featured-title" id="form-title">ENQUIRY FORM</h2>
+                            <p class="form-hint"><span class="demo-label">DEMO</span> This site has no server. The form is checked in your browser and nothing is sent.</p>
+                            <form id="contactForm" class="form" novalidate>
+                                <div class="form-field">
+                                    <label for="name">NAME <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error" required>
+                                    <p class="field-error" id="name-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="email">EMAIL <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-error" required>
+                                    <p class="field-error" id="email-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="topic">PROGRAM <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <select id="topic" name="topic" aria-describedby="topic-error" required>
+                                        <option value="">Choose a program or topic</option>
+                                        <option value="safari">Reserve Photo Safari</option>
+                                        <option value="adoption">Wildlife Adoption Program</option>
+                                        <option value="nocturnal">Nocturnal Fauna Tracking</option>
+                                        <option value="volunteer">Summer Volunteer Academy</option>
+                                        <option value="workshops">Conservation Workshops</option>
+                                        <option value="ecotour">Custom Eco-Tours</option>
+                                        <option value="custom">Custom group program</option>
+                                        <option value="general">General question</option>
+                                    </select>
+                                    <p class="field-error" id="topic-error"></p>
+                                </div>
+                                <div class="form-field">
+                                    <label for="message">MESSAGE <span class="required-mark" aria-hidden="true">*</span></label>
+                                    <textarea id="message" name="message" rows="6" maxlength="500" aria-describedby="message-count message-error" required></textarea>
+                                    <p class="char-counter" id="message-count">0 / 500 characters (minimum 10)</p>
+                                    <p class="field-error" id="message-error"></p>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">CHECK &amp; SEND (DEMO)</button>
+                                </div>
+                                <div id="contactResult" class="message form-result" role="status" aria-live="polite" tabindex="-1"></div>
+                            </form>
+                        </div>
+                        <div class="featured-img-box photo-box">
+                            <img src="images/adoption.jpg" alt="Two pixel-art foxes resting in a sunny forest clearing" width="604" height="340">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="reach-title">
+                    <h2 class="section-title" id="reach-title">WHERE TO FIND US</h2>
+                    <div class="stats-grid">
+                        <article class="stats-card"><span>LOCATION</span><span>ASTANA IT UNIVERSITY, ASTANA</span></article>
+                        <article class="stats-card"><span>PROJECT</span><span>WEB TECHNOLOGIES COURSE</span></article>
+                        <article class="stats-card"><span>RESPONSE</span><span>DEMO ONLY, NO REAL INBOX</span></article>
+                    </div>
+                    <p class="contact-note">This is a student project. Use the team's university channels for real questions about the website.</p>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/duck_icon.png" alt="" width="28" height="28">
+                        <span>WILDLIFE ENCYCLOPEDIA</span>
+                    </div>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-col">
+                        <h2>QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Catalog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h2>PROJECT INFO</h2>
+                        <ul>
+                            <li>Astana IT University</li>
+                            <li>Web Technologies, Final Project</li>
+                            <li>Student project, 2026</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Wildlife Encyclopedia. Frontend-only student project: forms are demonstrations and send no data.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div class="vine-border vine-right" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

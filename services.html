@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog | Wildlife Encyclopedia</title>
+    <meta name="description" content="Search and filter wildlife conservation programs and build your shortlist.">
+    <link rel="icon" type="image/png" href="images/duck_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page-container">
+        <div class="vine-border vine-left" aria-hidden="true"></div>
+
+        <div class="main-content">
+            <header class="header">
+                <a href="index.html" class="logo">
+                    <img src="images/duck_icon.png" alt="" class="logo-img" width="32" height="32">
+                    <span>WILDLIFE ENCYCLOPEDIA</span>
+                </a>
+                <nav class="nav" aria-label="Main navigation">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="services.html" class="nav-link active" aria-current="page">CATALOG</a>
+                    <a href="about.html" class="nav-link">ABOUT</a>
+                    <a href="contact.html" class="nav-link">CONTACT</a>
+                    <a href="signup.html" class="nav-link" data-auth="guest">SIGN UP</a>
+                    <a href="login.html" class="nav-link" data-auth="guest">LOG IN</a>
+                    <a href="profile.html" class="nav-link" data-auth="user" hidden>PROFILE</a>
+                    <button type="button" class="nav-link nav-logout-btn" id="navLogout" data-auth="user" hidden>LOG OUT</button>
+                    <button type="button" id="themeToggle" class="theme-toggle" aria-pressed="false">Dark mode</button>
+                </nav>
+            </header>
+
+            <main id="main">
+                <section class="hero">
+                    <h1>CONSERVATION PROGRAMS &amp; GUIDED TOURS</h1>
+                    <p class="hero-subtitle">
+                        Browse our wildlife programs, filter them by category, open the details
+                        and save the ones you like to your personal shortlist.
+                    </p>
+                </section>
+
+                <section class="filter-panel" aria-labelledby="filter-title">
+                    <h2 class="visually-hidden" id="filter-title">Filter programs</h2>
+                    <div class="search-row">
+                        <div class="form-field">
+                            <label for="searchInput" class="field-label">SEARCH PROGRAMS</label>
+                            <input type="search" id="searchInput" class="input" placeholder="Try: safari, night, free..." autocomplete="off">
+                        </div>
+                        <button type="button" id="clearFilters" class="btn btn-secondary btn-small">CLEAR FILTERS</button>
+                    </div>
+                    <fieldset class="category-group">
+                        <legend class="field-label">CATEGORY</legend>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="all" aria-pressed="true">ALL</button>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="tours" aria-pressed="false">TOURS</button>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="adoption" aria-pressed="false">ADOPTION</button>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="research" aria-pressed="false">RESEARCH</button>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="volunteering" aria-pressed="false">VOLUNTEERING</button>
+                            <button type="button" class="btn btn-secondary filter-btn" data-category="education" aria-pressed="false">EDUCATION</button>
+                    </fieldset>
+                    <p id="resultsCount" class="results-count" role="status" aria-live="polite">Showing 6 of 6 programs</p>
+                </section>
+
+                <section class="catalog-wrapper" aria-label="Program catalog">
+                    <div class="catalog-container">
+
+                        <aside class="catalog-sidebar">
+                            <section class="sidebar-box" aria-labelledby="shortlist-title">
+                                <h2 id="shortlist-title">MY SHORTLIST</h2>
+                                <p id="shortlistCount" class="shortlist-count">0 items planned</p>
+                                <p id="shortlistEmpty" class="empty-state">Your shortlist is empty. Press SAVE on a program or add your own activity below.</p>
+                                <ul id="shortlist" class="shortlist"></ul>
+                                <form id="activityForm" class="form add-activity" novalidate>
+                                    <label for="activityInput">ADD OWN ACTIVITY</label>
+                                    <div class="add-row">
+                                        <input type="text" id="activityInput" class="input" maxlength="60" placeholder="e.g. Visit Korgalzhyn lakes" aria-describedby="activityError">
+                                        <button type="submit" class="btn btn-primary btn-small">ADD</button>
+                                    </div>
+                                    <p id="activityError" class="field-error" aria-live="polite"></p>
+                                </form>
+                                <p id="shortlistStatus" class="status-toast is-success" role="status" aria-live="polite"></p>
+                                <button type="button" id="clearShortlist" class="btn btn-secondary btn-small">CLEAR ALL</button>
+                            </section>
+
+                            <section class="sidebar-box" aria-labelledby="overview-title">
+                                <h2 id="overview-title">CATALOG OVERVIEW</h2>
+                                <ul class="sidebar-stats">
+                                    <li><strong>Programs:</strong> 6 active</li>
+                                    <li><strong>Locations:</strong> 4 national parks + online</li>
+                                    <li><strong>Guides:</strong> certified biologists</li>
+                                </ul>
+                                <p>Need a custom program for a group or university?</p>
+                                <a href="contact.html?program=custom" class="btn btn-secondary btn-small">ASK US</a>
+                            </section>
+
+                            <section class="sidebar-box" aria-labelledby="weather-title">
+                                <h2 id="weather-title">PARK WEATHER CHECK</h2>
+                                <p class="form-hint">Live conditions from a public weather service, no account needed.</p>
+                                <form id="weatherForm" class="form add-activity" novalidate>
+                                    <label for="weatherPark">CHOOSE A PARK</label>
+                                    <div class="add-row">
+                                        <select id="weatherPark" class="input">
+                                            <option value="altyn-emel">Altyn-Emel National Park</option>
+                                            <option value="burabay">Burabay National Park</option>
+                                            <option value="ile-alatau">Ile-Alatau National Park</option>
+                                            <option value="charyn">Charyn Canyon National Park</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-primary btn-small">CHECK</button>
+                                    </div>
+                                </form>
+                                <p id="weatherResult" class="status-toast" role="status" aria-live="polite"></p>
+                            </section>
+                        </aside>
+
+                        <div class="catalog-grid" id="catalogGrid">
+                            <article class="card" data-category="tours" data-id="safari" data-title="Reserve Photo Safari">
+                                <div class="card-media">
+                                    <span class="card-badge">Popular</span>
+                                    <img src="images/safari.jpg" alt="Pixel-art desert reserve with cacti and red rock mountains" width="626" height="417" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Tours</span>
+                                        <span class="price">$150</span>
+                                    </div>
+                                    <h3>Reserve Photo Safari</h3>
+                                    <p>Guided birdwatching and nature photography tour led by expert wildlife biologists.</p>
+                                    <div class="card-details">
+                                        <span>Duration: 1 day</span>
+                                        <span>Rating: 4.9 (120 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-safari">
+                                        <p><strong>Location:</strong> Altyn-Emel National Park</p>
+                                        <ul><li>Small groups of up to 10 people</li><li>Telephoto lens rental available</li><li>Lunch and park entry included</li></ul>
+                                        <p><a href="contact.html?program=safari">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-safari">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card" data-category="adoption" data-id="adoption" data-title="Wildlife Adoption Program">
+                                <div class="card-media">
+                                    <span class="card-badge">Eco-support</span>
+                                    <img src="images/adoption.jpg" alt="Two pixel-art foxes resting in a sunny forest clearing" width="604" height="340" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Adoption</span>
+                                        <span class="price">$50/mo</span>
+                                    </div>
+                                    <h3>Wildlife Adoption Program</h3>
+                                    <p>Support rescued animals at our sanctuary and receive regular field reports and updates.</p>
+                                    <div class="card-details">
+                                        <span>Duration: Ongoing</span>
+                                        <span>Rating: 5.0 (85 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-adoption">
+                                        <p><strong>Location:</strong> Partner wildlife sanctuary</p>
+                                        <ul><li>Monthly photo report about your animal</li><li>Digital adoption certificate</li><li>Cancel at any time</li></ul>
+                                        <p><a href="contact.html?program=adoption">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-adoption">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card" data-category="research" data-id="nocturnal" data-title="Nocturnal Fauna Tracking">
+                                <div class="card-media">
+                                    
+                                    <img src="images/night.jpg" alt="Dark pixel-art forest cabin at night lit by lanterns" width="640" height="360" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Research</span>
+                                        <span class="price">$210</span>
+                                    </div>
+                                    <h3>Nocturnal Fauna Tracking</h3>
+                                    <p>Night-time field study of nocturnal species using professional thermal imaging tools.</p>
+                                    <div class="card-details">
+                                        <span>Duration: 2 nights</span>
+                                        <span>Rating: 4.8 (45 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-nocturnal">
+                                        <p><strong>Location:</strong> Burabay National Park</p>
+                                        <ul><li>Thermal cameras and headlamps provided</li><li>Overnight stay in a forest cabin</li><li>Minimum age 16</li></ul>
+                                        <p><a href="contact.html?program=nocturnal">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-nocturnal">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card" data-category="volunteering" data-id="volunteer" data-title="Summer Volunteer Academy">
+                                <div class="card-media">
+                                    <span class="card-badge">Featured</span>
+                                    <img src="images/volunteer.jpg" alt="Pixel-art volunteer walking through a green forest with a small dog" width="640" height="360" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Volunteering</span>
+                                        <span class="price">Free</span>
+                                    </div>
+                                    <h3>Summer Volunteer Academy</h3>
+                                    <p>Hands-on field training in wildlife tracking, habitat restoration and conservation ecology.</p>
+                                    <div class="card-details">
+                                        <span>Duration: 2 weeks</span>
+                                        <span>Rating: 4.9 (210 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-volunteer">
+                                        <p><strong>Location:</strong> Ile-Alatau National Park</p>
+                                        <ul><li>Accommodation in a field camp</li><li>Certificate of completion</li><li>Applications open in spring</li></ul>
+                                        <p><a href="contact.html?program=volunteer">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-volunteer">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card" data-category="education" data-id="workshops" data-title="Conservation Workshops">
+                                <div class="card-media">
+                                    
+                                    <img src="images/workshop.jpg" alt="Pixel-art group of people gathered in a desert landscape for a lecture" width="640" height="320" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Education</span>
+                                        <span class="price">$30</span>
+                                    </div>
+                                    <h3>Conservation Workshops</h3>
+                                    <p>Interactive lectures and online webinars led by zoologists and researchers.</p>
+                                    <div class="card-details">
+                                        <span>Duration: 3 hours</span>
+                                        <span>Rating: 4.7 (95 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-workshops">
+                                        <p><strong>Location:</strong> Online and in Astana</p>
+                                        <ul><li>Recording available after the session</li><li>Q&amp;A with a field researcher</li><li>Suitable for beginners</li></ul>
+                                        <p><a href="contact.html?program=workshops">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-workshops">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card" data-category="tours" data-id="ecotour" data-title="Custom Eco-Tours">
+                                <div class="card-media">
+                                    
+                                    <img src="images/ecotour.jpg" alt="Pixel-art jungle cliffs with waterfalls and explorers" width="640" height="361" loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-meta">
+                                        <span class="category">Tours</span>
+                                        <span class="price">$450</span>
+                                    </div>
+                                    <h3>Custom Eco-Tours</h3>
+                                    <p>Tailored national park journeys for individual researchers, groups and nature lovers.</p>
+                                    <div class="card-details">
+                                        <span>Duration: 3-5 days</span>
+                                        <span>Rating: 5.0 (60 reviews)</span>
+                                    </div>
+                                    <div class="card-more" id="more-ecotour">
+                                        <p><strong>Location:</strong> Charyn Canyon National Park</p>
+                                        <ul><li>Route planned around your interests</li><li>Transport from Almaty included</li><li>Private guide for the group</li></ul>
+                                        <p><a href="contact.html?program=ecotour">Send an enquiry about this program</a></p>
+                                    </div>
+                                    <div class="card-actions">
+                                        <button type="button" class="btn btn-secondary btn-small details-btn" aria-expanded="false" aria-controls="more-ecotour">DETAILS</button>
+                                        <button type="button" class="btn btn-primary btn-small save-btn" aria-pressed="false">SAVE</button>
+                                    </div>
+                                </div>
+                            </article>
+                            <p id="noResults" class="no-results" hidden>No results found. Try another word or choose ALL.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="why-title">
+                    <h2 class="section-title" id="why-title">WHY JOIN OUR CONSERVATION INITIATIVES?</h2>
+                    <div class="info-boxes">
+                        <div class="info-box">
+                            <h3>ECO-FRIENDLY APPROACH</h3>
+                            <p>All expeditions follow ethical guidelines that protect natural habitats and animals.</p>
+                        </div>
+                        <div class="info-box">
+                            <h3>CERTIFIED BIOLOGISTS</h3>
+                            <p>Tours and programs are guided by experienced wildlife experts and university researchers.</p>
+                        </div>
+                        <div class="info-box">
+                            <h3>DIRECT IMPACT</h3>
+                            <p>Program fees support endangered species protection and sanctuary rehabilitation.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="pixel-divider"></div>
+
+                <section class="info-section" aria-labelledby="reg-title">
+                    <h2 class="section-title" id="reg-title">BECOME A MEMBER</h2>
+                    <p class="section-intro">Create a free explorer profile. <span class="demo-label">DEMO</span> Frontend only: nothing is stored or sent.</p>
+                    <form id="registrationForm" class="form" novalidate>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="reg-firstname">FIRST NAME <span class="required-mark" aria-hidden="true">*</span></label>
+                                <input type="text" id="reg-firstname" name="firstname" autocomplete="given-name" aria-describedby="reg-firstname-error" required>
+                                <p class="field-error" id="reg-firstname-error"></p>
+                            </div>
+                            <div class="form-field">
+                                <label for="reg-lastname">LAST NAME <span class="required-mark" aria-hidden="true">*</span></label>
+                                <input type="text" id="reg-lastname" name="lastname" autocomplete="family-name" aria-describedby="reg-lastname-error" required>
+                                <p class="field-error" id="reg-lastname-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="reg-email">EMAIL <span class="required-mark" aria-hidden="true">*</span></label>
+                            <input type="email" id="reg-email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="reg-email-error" required>
+                            <p class="field-error" id="reg-email-error"></p>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="reg-pass">PASSWORD <span class="required-mark" aria-hidden="true">*</span></label>
+                                <input type="password" id="reg-pass" name="password" autocomplete="new-password" aria-describedby="reg-pass-hint reg-pass-error" required>
+                                <p class="form-hint" id="reg-pass-hint">At least 8 characters, with a letter and a number.</p>
+                                <p class="field-error" id="reg-pass-error"></p>
+                            </div>
+                            <div class="form-field">
+                                <label for="reg-confirm">CONFIRM PASSWORD <span class="required-mark" aria-hidden="true">*</span></label>
+                                <input type="password" id="reg-confirm" name="confirm_password" autocomplete="new-password" aria-describedby="reg-confirm-error" required>
+                                <p class="field-error" id="reg-confirm-error"></p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <fieldset>
+                                <legend>GENDER</legend>
+                                <div class="choice"><input type="radio" name="gender" id="gender-male" value="male"><label for="gender-male">Male</label></div>
+                                <div class="choice"><input type="radio" name="gender" id="gender-female" value="female"><label for="gender-female">Female</label></div>
+                                <div class="choice"><input type="radio" name="gender" id="gender-other" value="prefer_not_to_say" checked><label for="gender-other">Prefer not to say</label></div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>INTERESTS</legend>
+                                <div class="choice"><input type="checkbox" name="hobby" id="hobby-wildlife" value="photography"><label for="hobby-wildlife">Wildlife photography</label></div>
+                                <div class="choice"><input type="checkbox" name="hobby" id="hobby-hiking" value="hiking"><label for="hobby-hiking">Hiking and camping</label></div>
+                                <div class="choice"><input type="checkbox" name="hobby" id="hobby-birds" value="birds"><label for="hobby-birds">Birdwatching</label></div>
+                            </fieldset>
+                        </div>
+                        <div class="form-field">
+                            <label for="reg-country">COUNTRY <span class="required-mark" aria-hidden="true">*</span></label>
+                            <select id="reg-country" name="country" aria-describedby="reg-country-error" required>
+                                <option value="">Select your country</option>
+                                <option value="kz">Kazakhstan</option>
+                                <option value="uz">Uzbekistan</option>
+                                <option value="kg">Kyrgyzstan</option>
+                                <option value="us">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <p class="field-error" id="reg-country-error"></p>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">REGISTER</button>
+                            <button type="reset" class="btn btn-secondary">RESET</button>
+                        </div>
+                        <div id="registrationResult" class="message form-result" role="status" aria-live="polite" tabindex="-1"></div>
+                    </form>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="images/duck_icon.png" alt="" width="28" height="28">
+                        <span>WILDLIFE ENCYCLOPEDIA</span>
+                    </div>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-col">
+                        <h2>QUICK LINKS</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Catalog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h2>PROJECT INFO</h2>
+                        <ul>
+                            <li>Astana IT University</li>
+                            <li>Web Technologies, Final Project</li>
+                            <li>Student project, 2026</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Wildlife Encyclopedia. Frontend-only student project: forms are demonstrations and send no data.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div class="vine-border vine-right" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
